@@ -1,0 +1,13 @@
+My Dotfiles
+
+=========================
+
+Usage:
+
+1. git clone https://github.com/azhao1981/dotfiles.git
+
+2. Add index to ~/.bash_profile
+
+   source ~/dotfiles/index 
+
+3. source ~/.bash_profile

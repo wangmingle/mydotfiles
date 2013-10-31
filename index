@@ -1,0 +1,4 @@
+CURRENTDIR=`pwd`
+source ~/dotfiles/functions.sh
+source ~/dotfiles/aliases.sh
+source ~/dotfiles/bash_prompt.sh
