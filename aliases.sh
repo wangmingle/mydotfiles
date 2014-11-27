@@ -1,4 +1,5 @@
-export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/sbin:~/bin:$PATH
+export EDITOR="subl -w "
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -9,24 +10,24 @@ alias -- -="cd -"  # you need -- before you define -
 alias ll="ls -lh"
 
 # sudo
-# redo prew command use sudo 
+# redo prew command use sudo
 alias sure="sudo !!"
 
-# linode 
+# linode
 alias linc='ssh -t weizhao@lish-tokyo.linode.com main'
 
 # Manage dotfiles
 alias er="source ~/.bash_profile"   # reload bash profile
-alias eedit="mate ~/dotfiles && mate ~/dotfiles/aliases.sh"
+alias eedit="subl ~/dotfiles && subl ~/dotfiles/aliases.sh"
 
 # source tree
-alias str='open -a SourceTree ' 
+alias str='open -a SourceTree '
 
 alias sock5='ssh lint -N &'
 
 # sublime tools
 alias sp="cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/"
-alias edhost="sudo mate /etc/hosts"
+alias edhost="sudo subl /etc/hosts"
 
 # description rails db
 alias desdb="cd ~/dev/description"
@@ -46,8 +47,10 @@ alias sinfo="svn info"
 alias sug="svn upgrade"
 alias surl="svn info | grep URL | awk {'print $2'}"
 alias svng="svn log --stop-on-copy "
+alias svns="svn switch "
 # do not work
-alias svnaddall="svn st | awk '{if ( $1 == \"?\") { print $2}}' | xargs svn add"
+#alias svnaddall="svn st | awk '{if ( $1 == \"?\") { print $2}}' | xargs svn add"
+alias svnaddall="svn st | grep '^\?' | awk '{print \$2}' | xargs svn add $1"
 
 # redis
 alias redisstart='sudo launchctl start io.redis.redis-server'
@@ -72,16 +75,18 @@ alias gps="git push"
 alias gpl="git pull"
 alias giturl="git remote show origin"
 alias gitl="git config --get remote.origin.url"
-# I allway make a mistake to type this 
+# I allway make a mistake to type this
 alias gti="git "
 
+#pg
+alias pgs="postgres -D /usr/local/pgsql/data >logfile 2>&1 &"
 
 # sysctl
 alias symsl="sysctl net.inet.tcp.msl"
 alias symslt="sudo sysctl -w net.inet.tcp.msl=1000"  #net.inet.tcp.msl: 15000 -> 1000
 alias symslr="sudo sysctl -w net.inet.tcp.msl=15000"  #net.inet.tcp.msl: 1000 -> 15000
 
-# rails 
+# rails
 alias mg="rake db:migration"
 alias rt="touch tmp/restart.txt"
 alias tl="tail -f log/development.log"
@@ -101,12 +106,12 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 alias v="vim"
-alias m="mate ."
+alias m="subl ."
 alias s="subl ."
 alias o="open"
 alias oo="open ."
 
-# current work 
+# current work
 alias toc="cd /srv/rorapps/toc"
 alias be="bundle exec "
 alias ot="open http://toc.dev"
