@@ -263,4 +263,4 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 alias portalkill="ps aux | grep portal | awk '{print $2}' | xargs kill"
 
 filepath=$(cd "$(dirname "$0")"; pwd)
-alias gitopen="python $filepath/gitopen.py"
+alias gitopen="python $filepath/gitopen.py $1"
