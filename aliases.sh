@@ -17,8 +17,9 @@ alias sure="sudo !!"
 alias linc='ssh -t weizhao@lish-tokyo.linode.com main'
 
 # Manage dotfiles
-alias er="source ~/.bash_profile"   # reload bash profile
+# alias er="source ~/.bash_profile"   # reload bash profile
 alias eedit="subl ~/dotfiles && subl ~/dotfiles/aliases.sh"
+alias er="source ~/.zshrc"   # reload zshrc
 
 # source tree
 alias str='open -a SourceTree '
@@ -65,7 +66,7 @@ alias ree="rvm ree"
 alias rec="rake pry:run"
 
 # git
-alias gc="git clone "
+# alias gc="git clone "
 alias ga="git add . "
 alias gc1="git clone --depth 1 "
 alias gs="git status"
@@ -77,9 +78,12 @@ alias giturl="git remote show origin"
 alias gitl="git config --get remote.origin.url"
 # I allway make a mistake to type this
 alias gti="git "
+alias gsvnd="git svn dcommit"
+alias gsvnr="git svn rebase"
 
 #pg
-alias pgs="postgres -D /usr/local/pgsql/data >logfile 2>&1 &"
+# alias pgs="postgres -D /usr/local/pgsql/data >logfile 2>&1 &"
+alias pgs="pg_ctl start -D /usr/local/var/postgres/data -l /usr/local/var/log/postgres/log.log &"
 
 # sysctl
 alias symsl="sysctl net.inet.tcp.msl"
@@ -93,7 +97,7 @@ alias tl="tail -f log/development.log"
 alias tlp="tail -f log/production.log"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+# alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dw="cd ~/work"
@@ -104,7 +108,7 @@ alias p="cd ~/Projects"
 alias odown="open ~/Downloads"
 alias g="git"
 alias h="history"
-alias j="jobs"
+# alias j="jobs"
 alias v="vim"
 alias m="subl ."
 alias s="subl ."
@@ -117,6 +121,8 @@ alias be="bundle exec "
 alias ot="open http://toc.dev"
 alias rmovie="cd /srv/rorapps/rmovie"
 alias or="open http://rmovie.dev"
+alias pportal="cd ~/python_projects/ktsg_portal/trunk"
+alias portal="cd ~/work/nodejs_porject/new_portal"
 # open glass on localhost
 alias ogjava="open -a firefox https://localhost:4850"
 alias chfs="cd /Users/azhao/work/huafei/statistic"
@@ -253,3 +259,8 @@ alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+
+alias portalkill="ps aux | grep portal | awk '{print $2}' | xargs kill"
+
+filepath=$(cd "$(dirname "$0")"; pwd)
+alias gitopen="python $filepath/gitopen.py"
