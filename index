@@ -1,5 +1,6 @@
 CURRENTDIR=`pwd`
 source ~/dotfiles/functions.sh
 source ~/dotfiles/aliases.sh
+source ~/dotfiles/udesk.sh
 source ~/dotfiles/rake_completion.zsh
 # source ~/dotfiles/bash_prompt.sh

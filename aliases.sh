@@ -1,4 +1,11 @@
 export PATH=/usr/local/sbin:~/bin:$PATH
+
+#如果是在默认shell下, 
+# sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin/subl
+# alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
+
+#使用zsh的可以使用以下命令
+alias nano="subl"
 export EDITOR="subl -w "
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -20,6 +27,7 @@ alias linc='ssh -t weizhao@lish-tokyo.linode.com main'
 # alias er="source ~/.bash_profile"   # reload bash profile
 alias eedit="subl ~/dotfiles && subl ~/dotfiles/aliases.sh"
 alias er="source ~/.zshrc"   # reload zshrc
+alias zshconfig="subl ~/.oh-my-zsh && subl ~/.zshrc"
 
 # source tree
 alias str='open -a SourceTree '
@@ -54,8 +62,9 @@ alias svns="svn switch "
 alias svnaddall="svn st | grep '^\?' | awk '{print \$2}' | xargs svn add $1"
 
 # redis
-alias redisstart='sudo launchctl start io.redis.redis-server'
-alias redisstop='sudo launchctl stop io.redis.redis-server'
+alias redisstart="nohup redis-server >~/log/redis/log.log  2>&1  &"
+# alias redisstart='sudo launchctl start io.redis.redis-server'
+# alias redisstop='sudo launchctl stop io.redis.redis-server'
 
 # rvm
 alias r2="rvm use 2.1.0"
@@ -74,16 +83,19 @@ alias gq="git commit -a -m \"quick fix\""
 alias gci="git commit -a -m "
 alias gps="git push"
 alias gpl="git pull"
+alias gitf="git diff"
 alias giturl="git remote show origin"
 alias gitl="git config --get remote.origin.url"
 # I allway make a mistake to type this
 alias gti="git "
 alias gsvnd="git svn dcommit"
 alias gsvnr="git svn rebase"
+alias gitco="git checkout"
 
 #pg
 # alias pgs="postgres -D /usr/local/pgsql/data >logfile 2>&1 &"
 alias pgs="pg_ctl start -D /usr/local/var/postgres/data -l /usr/local/var/log/postgres/log.log &"
+alias elastar="nohup ~/Downloads/elasticsearch/bin/elasticsearch >~/log/es/log.log  2>&1  &"
 
 # sysctl
 alias symsl="sysctl net.inet.tcp.msl"
@@ -95,15 +107,16 @@ alias mg="rake db:migration"
 alias rt="touch tmp/restart.txt"
 alias tl="tail -f log/development.log"
 alias tlp="tail -f log/production.log"
+alias tailf="tail -f $1"
 
 # Shortcuts
 # alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
+alias dc="cd ~/Documents"
 alias dt="cd ~/Desktop"
 alias dw="cd ~/work"
 alias work="cd ~/work"
 alias dev="cd ~/dev"
-alias ror="cd /srv/rorapps"
 alias p="cd ~/Projects"
 alias odown="open ~/Downloads"
 alias g="git"
