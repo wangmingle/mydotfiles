@@ -44,10 +44,10 @@ pull所有的分支 或者使用 -s
 
 Installed:
 
+0. cd ~
+
 1. git clone https://github.com/wangmingle/mydotfiles.git
 
-2. Add index to ~/.bash_profile
+2. cd ~/dotfiles
 
-   source ~/dotfiles/index 
-
-3. source ~/.bash_profile
+3. ./install.sh
